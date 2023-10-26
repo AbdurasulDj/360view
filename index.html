@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>360 view</title>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="./styles/index.css"
+    />
+
+    <!-- for optimal display on high DPI devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <img
+          src="./img/header_logo_text.svg"
+          alt="logo and text"
+        />
+      </div>
+      <div class="header-right">
+        <div class="header-right__icons">
+          <a
+            href="#"
+            class="header-right__icon"
+          >
+            <img
+              src="./img/icons/telegram.svg"
+              alt="telegram"
+            />
+          </a>
+          <a
+            href="#"
+            class="header-right__icon"
+          >
+            <img
+              src="./img/icons/whatsapp.svg"
+              alt="whatsapp"
+            />
+          </a>
+        </div>
+        <a
+          href="tel:+99899 XXX XX XX"
+          class="header-right__number"
+        >
+          +99899 XXX XX XX
+        </a>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <div
+        class="main-places-btn"
+        id="apartments"
+      >
+        <p class="main-places-btn__heading uppercase">m1</p>
+        <p class="main-places-btn__name">Apartments</p>
+      </div>
+      <div
+        class="main-places-btn"
+        id="mansions"
+      >
+        <p class="main-places-btn__heading uppercase">m2</p>
+        <p class="main-places-btn__name">Mansions</p>
+      </div>
+      <div
+        class="main-places-btn"
+        id="park"
+      >
+        <p class="main-places-btn__heading uppercase">p1</p>
+        <p class="main-places-btn__name">Park</p>
+      </div>
+      <div
+        class="main-places-btn"
+        id="road"
+      >
+        <p class="main-places-btn__heading uppercase">r2</p>
+        <p class="main-places-btn__name">Road</p>
+      </div>
+    </main>
+    
+    <!-- 360 VIEW  -->
+    <div class="viewer-container absolute-container" id="viewer-container">
+      <div class="viewers">
+        <div class="viewer-close-btn" id="viewer-close">
+          +
+        </div>
+        <div id="viewer-apartments" class='viewer'></div>
+        <div id="viewer-mansions" class='viewer'></div>
+        <div id="viewer-park" class='viewer'></div>
+        <div id="viewer-road" class='viewer'></div>
+      </div>
+    </div>
+    
+    <!-- BROCHURE -->
+    <div class="brochure-container absolute-container" id="brochure-container">
+      <div class="brochure-container__inner">
+        <div class="brochure-content">
+          <div class="brochure-info">
+            <h2 class="brochure-info__heading">
+              don't miss the unique offer
+            </h2>
+            <p class="brochure-info__paragraph">
+              Be the first to experience the beauty of Keturah Resort at our exclusive private screening event! Leave your contact information below to receive an invitation to our special event.
+            </p>
+            <div class="brochure-info__messengers">
+              <a href="#">
+                <img src="./img/icons/telegram.svg" alt="telegram">
+                <p>Telegram</p>
+              </a>
+              <a href="#">
+                <img src="./img/icons/whatsapp.svg" alt="whatsapp">
+                <p>WhatsApp</p>
+              </a>
+            </div>
+          </div>
+          <div class="brochure-form">
+            <form >
+              <input type="text" placeholder="Your name">
+              <input type="email" placeholder="Your e-mail">
+              <input type="tel" placeholder="Phone number">
+              <input type="submit" value="Join now">
+            </form>
+          </div>
+        </div>
+        <div class="brochure-close-btn" id='brochure-close' >
+          +
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="download-btn" id="download" >
+        <p class="download-btn__text">Download brochure</p>
+        <img
+          class="download-btn__img"
+          src="./img/icons/download.svg"
+          alt="download"
+        />
+      </div>
+    </footer>
+
+    <script type="importmap">
+      {
+          "imports": {
+              "three": "https://cdn.jsdelivr.net/npm/three/build/three.module.js",
+              "@photo-sphere-viewer/core": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.module.js"
+          }
+      }
+  </script>
+  
+  <script type="module">
+    import { Viewer } from '@photo-sphere-viewer/core';
+    window.onload = () => {
+  
+        const viewerApartments = new Viewer({
+            container: document.querySelector('#viewer-apartments'),
+            panorama: './img/1.png',
+        });
+
+        const viewerMansions = new Viewer({
+          container: document.querySelector('#viewer-mansions'),
+          panorama: './img/2.png',
+        });
+
+        const viewerPark = new Viewer({
+          container: document.querySelector('#viewer-park'),
+          panorama: './img/3.png',
+        });
+
+        const viewerRoad = new Viewer({
+            container: document.querySelector('#viewer-road'),
+            panorama: './img/4.png',
+        });
+    }
+  </script>
+  <!-- custom scripts -->
+  <script src="./js/scripts.js"></script>
+  </body>
+</html>
